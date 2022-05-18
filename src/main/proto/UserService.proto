@@ -1,0 +1,22 @@
+// UserService.proto
+syntax = "proto3";
+package com.grpcuser;
+
+option java_multiple_files = true;
+option java_package = "com.grpcuser";
+
+service UserService {
+  rpc getUser(UserId) returns (User);
+  rpc setUser(User) returns (UserId);
+}
+
+message User {
+  int64 id = 1;
+  string username = 2;
+  string email = 3;
+  repeated string roles = 4;
+}
+
+message UserId {
+  int64 id = 1;
+}
